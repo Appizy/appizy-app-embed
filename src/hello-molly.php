@@ -23,4 +23,4 @@ class MyPlugin
     }
 }
 
-add_shortcode('appi-me', ['MyPlugin', 'fooFunc']));
+add_shortcode('appi-me', ['MyPlugin', 'fooFunc']);
