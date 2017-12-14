@@ -1,4 +1,4 @@
 #!/bin/bash
 
 docker exec docker_wordpress_1 /bin/bash -c \
-    'cd /var/www/html/wp-content/plugins/appizy-app-embed && ./vendor/bin/phpcs --standard=PSR2 ./src'
+    'cd ../repo && ./vendor/bin/phpcs --standard=phpcs.xml ./src'

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker exec docker_phpfpm7_1 /bin/bash -c \
-    'cd /var/www/html/portail && ./vendor/bin/phpcbf --standard=PSR2 ./src'
+docker exec docker_wordpress_1 /bin/bash -c \
+    'cd ../repo && ./vendor/bin/phpcbf --standard=phpcs.xml ./src'

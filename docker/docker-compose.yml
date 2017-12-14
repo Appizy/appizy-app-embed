@@ -6,10 +6,11 @@ services:
     image: wordpress
     restart: always
     ports:
-      - 8080:80
+      - 8080:1006
     environment:
       WORDPRESS_DB_PASSWORD: example
     volumes:
+      - ..:/var/www/repo
       - ../src:/var/www/html/wp-content/plugins/appizy-app-embed
 
   mysql:
