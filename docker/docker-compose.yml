@@ -4,9 +4,11 @@ services:
 
   wordpress:
     image: wordpress
+    depends_on:
+      - mysql
     restart: always
     ports:
-      - 8080:1006
+      - 8080:80
     environment:
       WORDPRESS_DB_PASSWORD: example
     volumes:
