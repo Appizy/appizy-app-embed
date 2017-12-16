@@ -1,5 +1,7 @@
 # Appizy App Embed - Work in progress...
 
+[![Build Status](https://travis-ci.org/Appizy/appizy-app-embed.svg?branch=master)](https://travis-ci.org/Appizy/appizy-app-embed)
+
 **WIP: this plugin is in construction. Do not use it yet!**
 
 Appizy official WordPress plugin is the easiest way to embed the web-calculator created with Appizy into your content.
