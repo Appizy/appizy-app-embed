@@ -9,7 +9,7 @@
 
 ?>
 <div class="wrap">
-	<h1><?php esc_html_e( 'Code Embed Search', 'simple-embed-code' ); ?></h1>
+	<h1><?php esc_html_e( 'Appizy Embed App', 'appizy-embed-app' ); ?></h1>
 
 	<?php
 
@@ -27,22 +27,29 @@
 	$attachments = get_posts( $args );
 
 	?>
-	<h2>Available web-calculator</h2>
-	<table class="form-table">
-		<thead>
-		<tr>
-			<th>Title</th>
-			<th>Caption</th>
-		</tr>
-		</thead>
-		<tbody>
-		<?php foreach ( $attachments as $attachment ) : ?>
-			<?php $attachment_id = $attachment->ID; ?>
+	<?php if ( count( $attachments ) > 0 ) : ?>
+		<h2>Available web-calculator</h2>
+		<p><?php _e( 'Copy the shortcode into your post to display the corresponding web-calculator', 'appizy-app-embed' ); ?></p>
+		<table class="form-table">
+			<thead>
 			<tr>
-				<td><?php get_the_title( $attachment_id ); ?></td>
-				<td><?php wp_get_attachment_caption( $attachment_id ); ?></td>
+				<th>Title</th>
+				<th>Caption</th>
+				<th>Shortcode</th>
 			</tr>
-		<?php endforeach; ?>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+			<?php foreach ( $attachments as $attachment ) : ?>
+				<?php $attachment_id = $attachment->ID; ?>
+				<tr>
+					<td><?php echo get_the_title( $attachment_id ); ?></td>
+					<td><?php echo wp_get_attachment_caption( $attachment_id ); ?></td>
+					<td><input value='[appizy id="<?php echo $attachment_id; ?>"]'/></td>
+				</tr>
+			<?php endforeach; ?>
+			</tbody>
+		</table>
+	<?php else : ?>
+		<p><?php _e( 'No web-calculator found in the media library', 'appizy-app-embed' ); ?></p>
+	<?php endif; ?>
 </div>

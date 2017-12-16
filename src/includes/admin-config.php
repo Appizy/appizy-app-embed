@@ -4,7 +4,7 @@
  *
  * Add various adminstration menu options
  *
- * @package  simple-embed-code
+ * @package  appizy-app-embed
  */
 
 /**
