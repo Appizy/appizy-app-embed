@@ -10,7 +10,7 @@
 /**
  * Callback function for embed shortcode
  *
- * @param array  git$atts attributes passed to the shortcode.
+ * @param array  $atts attributes passed to the shortcode.
  * @param string $content content inside the shortcode tag.
  *
  * @return string
