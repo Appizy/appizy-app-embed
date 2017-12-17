@@ -19,7 +19,7 @@
  *
  * @return   string          Links, now with settings added
  */
-function ce_add_settings_link( $links, $file ) {
+function appizy_add_settings_link( $links, $file ) {
 
 	static $this_plugin;
 
@@ -28,14 +28,14 @@ function ce_add_settings_link( $links, $file ) {
 	}
 
 	if ( strpos( $file, 'code-embed.php' ) !== false ) {
-		$settings_link = '<a href="admin.php?page=ce-options">' . __( 'Settings', 'simple-embed-code' ) . '</a>';
+		$settings_link = '<a href="admin.php?page=ce-options">' . __( 'Settings', 'appizy-app-embed' ) . '</a>';
 		array_unshift( $links, $settings_link );
 	}
 
 	return $links;
 }
 
-add_filter( 'plugin_action_links', 'ce_add_settings_link', 10, 2 );
+add_filter( 'plugin_action_links', 'appizy_add_settings_link', 10, 2 );
 
 /**
  * Add meta to plugin details
@@ -49,16 +49,16 @@ add_filter( 'plugin_action_links', 'ce_add_settings_link', 10, 2 );
  *
  * @return   string          Links, now with settings added
  */
-function ce_set_plugin_meta( $links, $file ) {
+function appizy_set_plugin_meta( $links, $file ) {
 
 	if ( strpos( $file, 'code-embed.php' ) !== false ) {
-		$links = array_merge( $links, array( '<a href="https://wordpress.org/plugins/simple-embed-code/">' . __( 'Support', 'simple-embed-code' ) . '</a>' ) );
+		$links = array_merge( $links, array( '<a href="https://wordpress.org/plugins/simple-embed-code/">' . __( 'Support', 'appizy-app-embed' ) . '</a>' ) );
 	}
 
 	return $links;
 }
 
-add_filter( 'plugin_row_meta', 'ce_set_plugin_meta', 10, 2 );
+add_filter( 'plugin_row_meta', 'appizy_set_plugin_meta', 10, 2 );
 
 /**
  * Code Embed Menu
@@ -69,17 +69,17 @@ add_filter( 'plugin_row_meta', 'ce_set_plugin_meta', 10, 2 );
  *
  * @uses ce_help         Return help text
  */
-function ce_menu() {
+function appizy_menu() {
 
 	// Add search sub-menu.
 	global $ce_search_hook;
 
-	$ce_search_hook = add_submenu_page( 'tools.php', __( 'Code Embed Search', 'simple-embed-code' ), __( 'Appizy', 'simple-embed-code' ), 'edit_posts', 'ce-search', 'ce_search' );
+	$ce_search_hook = add_submenu_page( 'tools.php', __( 'Code Embed Search', 'appizy-app-embed' ), __( 'Appizy', 'appizy-app-embed' ), 'edit_posts', 'appizy-search', 'appizy_search' );
 
-	add_action( 'load-' . $ce_search_hook, 'ce_add_options_help' );
+	add_action( 'load-' . $ce_search_hook, 'appizy_add_options_help' );
 }
 
-add_action( 'admin_menu', 'ce_menu' );
+add_action( 'admin_menu', 'appizy_menu' );
 
 /**
  * Add Options Help
@@ -90,7 +90,7 @@ add_action( 'admin_menu', 'ce_menu' );
  *
  * @uses     ce_options_help    Return help text
  */
-function ce_add_options_help() {
+function appizy_add_options_help() {
 
 	global $ce_options_hook;
 	$screen = get_current_screen();
@@ -101,8 +101,8 @@ function ce_add_options_help() {
 
 	$screen->add_help_tab(
 		array(
-			'id'      => 'ce-options-help-tab',
-			'title'   => __( 'Help', 'simple-embed-code' ),
+			'id'      => 'appizy-options-help-tab',
+			'title'   => __( 'Help', 'appizy-app-embed' ),
 			'content' => 'Hello',
 		)
 	);
@@ -111,7 +111,7 @@ function ce_add_options_help() {
 /**
  * Define a tool screen
  */
-function ce_search() {
+function appizy_search() {
 	include_once __DIR__ . '/tools-screen.php';
 }
 
