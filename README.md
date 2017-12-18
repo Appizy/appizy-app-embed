@@ -9,7 +9,7 @@ Note: this is the development area. For the official plugin package, got to the 
 
 ## Usage
 
-See [plugin readme](src/readme.txt)
+See [plugin readme](src)
 
 ## Contribute
 
