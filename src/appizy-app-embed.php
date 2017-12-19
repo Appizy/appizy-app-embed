@@ -9,6 +9,7 @@ Description: The easiest and fastest way to embed your web-applications created 
 Author: Appizy
 Author URI: http://www.appizy.com
 Version: 1.0
+Text Domain: appizy
 */
 
 /*
@@ -29,7 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-$functions_dir = __DIR__ . DIRECTORY_SEPARATOR . 'includes/';
+$functions_dir = __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
 
 if ( is_admin() ) {
 	include_once $functions_dir . '/admin-config.php';

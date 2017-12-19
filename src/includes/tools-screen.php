@@ -1,13 +1,13 @@
 <?php
 /**
- * Admin settings page to list all available web-calculators in the media library
+ * Admin > Tools page to list all available web-calculators in the Media library
  *
  * @package Appizy App Embed
  */
 
 ?>
 <div class="wrap">
-	<h1><?php esc_html_e( 'Appizy Embed App', 'appizy-embed-app' ); ?></h1>
+	<h1><?php esc_html_e( 'Appizy Embed App', 'appizy' ); ?></h1>
 
 	<?php
 
@@ -27,15 +27,15 @@
 
 	?>
 	<?php if ( count( $attachments ) > 0 ) : ?>
-		<h2>Available files in Media library</h2>
-		<p>The table bellow list the HTML files in your media library. They can be embedded into your posts.</p>
-		<p><?php _e( 'Copy the shortcode into your post to display the corresponding file.', 'appizy-app-embed' ); ?></p>
+		<h2><?php _e( 'Available files in Media library', 'appizy' ); ?></h2>
+		<p><?php _e( 'The table bellow lists the HTML files in your media library that you can embed into your posts.' ); ?></p>
+		<p><?php _e( 'Copy the shortcode into your post to display the corresponding file.', 'appizy' ); ?></p>
 		<table class="striped widefat">
 			<thead>
 			<tr>
-				<th>Title</th>
-				<th>Caption</th>
-				<th>Shortcode</th>
+				<th><?php _e( 'Title' ); ?></th>
+				<th><?php _e( 'Caption' ); ?></th>
+				<th><?php _e( 'Shortcode' ); ?></th>
 			</tr>
 			</thead>
 			<tbody>
@@ -54,6 +54,6 @@
 			</tbody>
 		</table>
 	<?php else : ?>
-		<p><?php _e( 'No web-calculator found in the media library', 'appizy-app-embed' ); ?></p>
+		<p><?php _e( 'No web-calculator found in the media library', 'appizy' ); ?></p>
 	<?php endif; ?>
 </div>

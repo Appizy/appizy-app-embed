@@ -19,7 +19,7 @@ function appizy_shortcode_callback( $atts, $content = '' ) {
 			'id' => null,
 		],
 		$atts,
-		'appi-me'
+		'appizy'
 	);
 
 	$attachment_url = wp_get_attachment_url( $atts['id'] );
