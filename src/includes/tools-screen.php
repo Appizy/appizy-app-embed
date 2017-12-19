@@ -1,7 +1,5 @@
 <?php
 /**
- * Appizy App Embed
- *
  * Admin settings page to list all available web-calculators in the media library
  *
  * @package Appizy App Embed

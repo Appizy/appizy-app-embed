@@ -1,7 +1,5 @@
 <?php
 /**
- * Appizy App Embed
- *
  * Register shortcode
  *
  * @package Appizy App Embed

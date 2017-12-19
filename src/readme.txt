@@ -1,11 +1,11 @@
 === App Embed ===
 Contributors: nicolashefti
 Tags: appizy, spreadsheet, embed, calculator, web-calculator
-Requires at least: 4.6
+Requires at least: 4.9
 Tested up to: 4.9
 Requires PHP: 5.6
 Stable tag: 1.0.0
-License: GPLv2 or later
+License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Appizy App Embed provides a very easy and efficient way to embed your web-calculator created with Appizy.

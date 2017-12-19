@@ -2,23 +2,9 @@
 /**
  * Administration Menu Options
  *
- * Add various adminstration menu options
- *
- * @package  appizy-app-embed
+ * @package Appizy App Embed
  */
 
-/**
- * Add Settings link to plugin list
- *
- * Add a Settings link to the options listed against this plugin
- *
- * @since    1.6
- *
- * @param    string $links Current links.
- * @param    string $file File in use.
- *
- * @return   string          Links, now with settings added
- */
 function appizy_add_settings_link( $links, $file ) {
 
 	static $this_plugin;
@@ -37,38 +23,6 @@ function appizy_add_settings_link( $links, $file ) {
 
 add_filter( 'plugin_action_links', 'appizy_add_settings_link', 10, 2 );
 
-/**
- * Add meta to plugin details
- *
- * Add options to plugin meta line
- *
- * @since    1.6
- *
- * @param    string $links Current links.
- * @param    string $file File in use.
- *
- * @return   string          Links, now with settings added
- */
-function appizy_set_plugin_meta( $links, $file ) {
-
-	if ( strpos( $file, 'code-embed.php' ) !== false ) {
-		$links = array_merge( $links, array( '<a href="https://wordpress.org/plugins/simple-embed-code/">' . __( 'Support', 'appizy-app-embed' ) . '</a>' ) );
-	}
-
-	return $links;
-}
-
-add_filter( 'plugin_row_meta', 'appizy_set_plugin_meta', 10, 2 );
-
-/**
- * Code Embed Menu
- *
- * Add a new option to the Admin menu and context menu
- *
- * @since    1.4
- *
- * @uses ce_help         Return help text
- */
 function appizy_menu() {
 
 	// Add search sub-menu.
