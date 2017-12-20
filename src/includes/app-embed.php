@@ -23,12 +23,13 @@ function appizy_shortcode_callback( $atts, $content = '' ) {
 	);
 
 	$attachment_url = wp_get_attachment_url( $atts['id'] );
+	$iframe_id      = uniqid( 'appizy-iframe' );
 
-	return "<iframe class='appizy-iframe' frameborder='0' width='100%' src='$attachment_url'></iframe><script>
-                    var appizyIFrame = document.getElementsByClassName('appizy-iframe')[0];
-                    appizyIFrame.addEventListener('load', function() {
-                        document.getElementsByClassName('appizy-iframe')[0].style.height = document.getElementsByClassName('appizy-iframe')[0].contentWindow.document.body.offsetHeight + 16 + 'px'; 
-            
+	return "<iframe id='$iframe_id' class='appizy-iframe' frameborder='0' width='100%' src='$attachment_url'></iframe><script>
+                    var appizy_iframe = document.getElementById('$iframe_id');
+                    var default_margin = 16;
+                    appizy_iframe.addEventListener('load', function() {
+                        appizy_iframe.style.height = appizy_iframe.contentWindow.document.body.offsetHeight + default_margin +'px'; 
                     });
             </script>";
 }
