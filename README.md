@@ -1,4 +1,4 @@
-# Appizy App Embed - Work in progress...
+# Appizy App Embed
 
 [![Build Status](https://travis-ci.org/Appizy/appizy-app-embed.svg?branch=master)](https://travis-ci.org/Appizy/appizy-app-embed)
 
