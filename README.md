@@ -32,3 +32,5 @@ Step 4 - enjoy testing, developing...
 ## Resources
 
 [WordPress readme validator](https://wordpress.org/plugins/developers/readme-validator/)
+
+[WordPress plugin guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/)
