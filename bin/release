@@ -1,0 +1,12 @@
+# Release script considers the SVN folder to at the root of the repo
+
+# Update trunk
+cp src/* svn/trunk
+
+# Update tags
+cp src/* svn/tags/1.1.0
+
+# Update assets
+cp assets svn/assets
+
+
