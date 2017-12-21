@@ -4,7 +4,7 @@
 
 Appizy official WordPress plugin is the easiest way to embed the web-calculator created with Appizy into your content.
 
-Note: this is the development area. **For the _ready to use_ package, got to the official [App Embed](https://wordpress.org/plugins/appizy-app-embed/#description) page on WordPress.org.**
+Note: this is the development area. **For the ready to use package, got to the official [App Embed](https://wordpress.org/plugins/appizy-app-embed/#description) page on WordPress.org.**
 
 ## Usage
 
