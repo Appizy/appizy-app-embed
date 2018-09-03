@@ -1,4 +1,9 @@
 <?php
+/**
+ * Applications API endpoint
+ *
+ * @package Appizy App Embed
+ */
 
 /**
  * Grab latest post title by an author!
@@ -8,13 +13,22 @@
  * @return string|null Post title for the latest,  * or null if none.
  */
 function my_awesome_func( $data ) {
-	$posts = get_post( $data['id'] );
+	$posts = get_post_meta( $data['id'], 'fruit' );
 
-	if ( empty( $posts ) ) {
-		return null;
+	return $posts;
+}
+
+/**
+ * @param $data
+ *
+ * @return string
+ */
+function appizy_update_item( $data ) {
+	if ( ! add_post_meta( $data['id'], 'fruit', 'banana', true ) ) {
+		update_post_meta( $data['id'], 'fruit', 'banana' );
 	}
 
-	return $posts->post_title;
+	return 'done';
 }
 
 add_action( 'rest_api_init', function () {
@@ -33,8 +47,8 @@ add_action( 'rest_api_init', function () {
 			),
 		),
 		array(
-			'methods' => WP_REST_Server::EDITABLE,
-//			'callback'            => array( $this, 'update_item' ),
+			'methods'  => WP_REST_Server::EDITABLE,
+			'callback' => 'appizy_update_item',
 //			'permission_callback' => array( $this, 'update_item_permissions_check' ),
 //			'args'                => $this->get_endpoint_args_for_item_schema( false ),
 		),
