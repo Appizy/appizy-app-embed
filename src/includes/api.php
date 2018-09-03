@@ -15,7 +15,7 @@
 function my_awesome_func( $data ) {
 	$posts = get_post_meta( $data['id'], 'fruit' );
 
-	return $posts;
+	return json_encode( $posts );
 }
 
 /**
@@ -24,8 +24,10 @@ function my_awesome_func( $data ) {
  * @return string
  */
 function appizy_update_item( $data ) {
-	if ( ! add_post_meta( $data['id'], 'fruit', 'banana', true ) ) {
-		update_post_meta( $data['id'], 'fruit', 'banana' );
+	$json = $data->get_body_params();
+
+	if ( ! add_post_meta( $data['id'], 'fruit', $json, true ) ) {
+		update_post_meta( $data['id'], 'fruit', $json );
 	}
 
 	return 'done';
