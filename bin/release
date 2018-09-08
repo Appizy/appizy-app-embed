@@ -1,4 +1,4 @@
-# Release script considers the SVN folder to at the root of the repo
+# Release script considers the SVN folder to be at the root of the repo
 
 # Update trunk
 cp src/* svn/trunk

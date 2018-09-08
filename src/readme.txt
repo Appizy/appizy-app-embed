@@ -4,7 +4,7 @@ Tags: appizy, spreadsheet, embed, calculator, web-calculator
 Requires at least: 4.9
 Tested up to: 4.9
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag:2.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,7 @@ Appizy App Embed allows you to add a web calculator inside your WordPress site.
 
 Key features:
 
+* **NEW**: logged in user now can save the application state
 * Fast embed using shortcode inside any post.
 * Manage you web-calculator like any other media item.
 * Separation of code (CSS and JavaScript) using an iFrame tag to avoid any collision with WordPress.
@@ -49,6 +50,9 @@ Appizy App Embed can be found and installed via the Plugin menu within WordPress
 3. Display of web-calculator inside the post
 
 == Changelog ==
+
+= 2.0.0 =
+* Major new release, it is now possible to save the application state per user
 
 = 1.0.0 =
 * Initial release

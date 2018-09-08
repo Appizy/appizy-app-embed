@@ -1,0 +1,11 @@
+{
+	"name": "AppizyAppEmbed",
+	"author": "Nicolas Hefti <nicolas@appizy.com>",
+	"devDependencies": {
+		"grunt": "1.0.2",
+		"grunt-contrib-jshint": "~1.0.0"
+	},
+	"dependencies": {
+		"jquery": "1.12.4"
+	}
+}
