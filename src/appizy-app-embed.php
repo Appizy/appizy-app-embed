@@ -28,17 +28,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+require_once 'class/class-appizy-app-embed.php';
+require_once 'class/class-appizy-api.php';
 
+new Appizy_App_Embed();
+new Appizy_Api();
 
-$functions_dir = __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
-
-if (is_admin()) {
-    include_once $functions_dir . '/admin-config.php';
-} else {
-    include_once $functions_dir . '/app-embed.php';
+if ( is_admin() ) {
+	include_once $functions_dir . '/admin-config.php';
 }
-
-include_once $functions_dir . '/api.php';
-
-//$appizy = new Slug_Custom_Route();
-//$appizy->register_routes();

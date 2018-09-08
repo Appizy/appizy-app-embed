@@ -28,7 +28,7 @@
 	?>
 	<?php if ( count( $attachments ) > 0 ) : ?>
 		<h2><?php _e( 'Available files in Media library', 'appizy' ); ?></h2>
-		<p><?php _e( 'The table bellow lists the HTML files in your media library that you can embed into your posts.' ); ?></p>
+		<p><?php _e( 'The table bellow lists the HTML files in your media library that you can embed into your posts.', 'appizy' ); ?></p>
 		<p><?php _e( 'Copy the shortcode into your post to display the corresponding file.', 'appizy' ); ?></p>
 		<table class="striped widefat">
 			<thead>
