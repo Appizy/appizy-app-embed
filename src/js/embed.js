@@ -1,5 +1,5 @@
 (function ($) {
-	var appizy_iframe  = document.getElementsByClassName( 'appizy-iframe' );
+	var appizy_iframe  = document.getElementsByClassName( 'appizy-app-iframe' );
 	var default_margin = 16;
 
 	appizy_iframe = appizy_iframe[0];
@@ -33,7 +33,7 @@
 		}
 	);
 
-	var saveButton = document.getElementById( 'save' );
+	var saveButton = document.getElementById( '.appizy-app-toolbar button' );
 	saveButton.addEventListener(
 		'click', function () {
 			var inputs = appizy_iframe.contentWindow.APY.getInputs();

@@ -8,7 +8,7 @@
 class Appizy_App_Embed {
 
 	public function __construct() {
-		$functions_dir = __DIR__ . '/../includes/';
+		$functions_dir = __DIR__ . '/../includes';
 
 		if ( is_admin() ) {
 			include_once $functions_dir . '/admin-config.php';
@@ -26,6 +26,7 @@ class Appizy_App_Embed {
 		$this->register_scripts();
 
 		add_action( 'plugins_loaded', array( $this, 'enqueue_appizy_scripts' ) );
+		add_action( 'plugins_loaded', array( $this, 'enqueue_appizy_styles' ) );
 	}
 
 	/**
@@ -33,6 +34,7 @@ class Appizy_App_Embed {
 	 */
 	public function register_scripts() {
 		wp_register_script( 'appizy-script', plugins_url( '/../js/embed.js', __FILE__ ), array( 'jquery' ), null, true );
+		wp_register_style( 'appizy-styles', plugins_url( '/../css/appizy-styles.css', __FILE__ ) );
 	}
 
 	/**
@@ -47,5 +49,12 @@ class Appizy_App_Embed {
 				'nonce' => wp_create_nonce( 'wp_rest' ),
 			)
 		);
+	}
+
+	/**
+	 * Enqueues plugin-specific styles.
+	 */
+	public function enqueue_appizy_styles() {
+		wp_enqueue_style( 'appizy-styles' );
 	}
 }

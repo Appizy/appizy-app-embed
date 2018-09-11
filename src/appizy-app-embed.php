@@ -33,7 +33,3 @@ require_once 'class/class-appizy-api.php';
 
 new Appizy_App_Embed();
 new Appizy_Api();
-
-if ( is_admin() ) {
-	include_once $functions_dir . '/admin-config.php';
-}

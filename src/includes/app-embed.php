@@ -23,13 +23,23 @@ function appizy_shortcode_callback( $atts, $content = '' ) {
 	);
 
 	$attachment_url = wp_get_attachment_url( $atts['id'] );
-	$iframe_id      = uniqid( 'appizy-iframe' );
 
 	$atts_id = $atts['id'];
 
-	$template = include 'embed.tpl.php';
+	$content = "<div class='appizy-app'><iframe class='appizy-app-iframe'
+            data-app-id='$atts_id'
+            frameborder='0' width='100%'
+            src='$attachment_url'></iframe>";
 
-	return $template;
+	if ( is_user_logged_in() ) {
+		$content .= '<div class="appizy-app-toolbar">';
+		$content .= '<button>Save</button>';
+		$content .= '</div>';
+	}
+
+	$content .= '</div>';
+
+	return $content;
 }
 
 add_shortcode( 'appizy', 'appizy_shortcode_callback' );

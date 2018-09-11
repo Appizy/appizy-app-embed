@@ -1,0 +1,15 @@
+.appizy-app {
+
+}
+
+.appizy-app-iframe {
+    margin: 0;
+    padding: 0;
+}
+
+.appizy-app-toolbar {
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    margin: 0.4em 0 1em 0;
+    padding: 1em 0;
+}
