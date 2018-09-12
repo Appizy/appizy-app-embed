@@ -8,23 +8,24 @@
 /**
  * Callback function for embed shortcode
  *
- * @param array $atts attributes passed to the shortcode.
+ * @param array $attributes attributes passed to the shortcode.
  * @param string $content content inside the shortcode tag.
  *
  * @return string
  */
-function appizy_shortcode_callback( $atts, $content = '' ) {
-	$atts = shortcode_atts(
+function appizy_shortcode_callback( $attributes, $content = '' ) {
+	$attributes = shortcode_atts(
 		[
-			'id' => null,
+			'id'   => null,
+			'save' => 'disabled',
 		],
-		$atts,
+		$attributes,
 		'appizy'
 	);
 
-	$attachment_url = wp_get_attachment_url( $atts['id'] );
+	$attachment_url = wp_get_attachment_url( $attributes['id'] );
 
-	$atts_id = $atts['id'];
+	$atts_id = $attributes['id'];
 
 	$content = "<div class='appizy-app'><iframe class='appizy-app-iframe'
             data-app-id='$atts_id'
@@ -32,9 +33,12 @@ function appizy_shortcode_callback( $atts, $content = '' ) {
             src='$attachment_url'></iframe>";
 
 	if ( is_user_logged_in() ) {
-		$content .= '<div class="appizy-app-toolbar">';
-		$content .= '<button>Save</button>';
-		$content .= '</div>';
+
+		if ( 'enabled' === $attributes['save'] ) {
+			$content .= '<div class="appizy-app-toolbar">';
+			$content .= '<button type="submit">Save</button>';
+			$content .= '</div>';
+		}
 	}
 
 	$content .= '</div>';

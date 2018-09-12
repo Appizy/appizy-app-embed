@@ -4,60 +4,60 @@
 
     for (var i = 0; i < apps.length; i++) {
         var app = apps[i];
+
         var frame = app.querySelector('iframe');
-
-        frame.addEventListener(
-            'load',
-            function () {
-                this.style.height = this.contentWindow.document.body.offsetHeight + default_margin + 'px';
-                var app_id = this.getAttribute('data-app-id');
-
-                var _this = this;
-                $.ajax(
-                    {
-                        url: appizyApi.root + 'wp-json/appizy/v1/app/' + app_id,
-                        method: 'GET',
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
-                        }
-                    }
-                ).done(
-                    function (data) {
-                        if (!data) {
-                            data = {}
-                        }
-
-                        _this.contentWindow.APY.setInputs(data);
-                        _this.contentWindow.APY.calculate();
-                    }
-                );
-            }
-        );
-
         var saveButton = app.querySelector('.appizy-app-toolbar button');
+        var isSaveEnabled = !!saveButton;
 
-        saveButton.addEventListener(
-            'click',
-            function () {
-                var inputs = this.contentWindow.APY.getInputs();
-                var app_id = this.getAttribute('data-app-id');
-                console.log(inputs, app_id);
+        frame.addEventListener('load', _resizeFrame);
 
-                $.ajax(
-                    {
-                        url: appizyApi.root + 'wp-json/appizy/v1/app/' + app_id,
-                        data: inputs,
-                        method: 'POST',
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
-                        }
+        if (isSaveEnabled) {
+            frame.addEventListener('load', _loadUserData);
+            saveButton.addEventListener('click', _saveUserData.bind(frame));
+        }
+
+        function _resizeFrame() {
+            this.style.height = this.contentWindow.document.body.offsetHeight + default_margin + 'px';
+        }
+
+        function _loadUserData() {
+            var app_id = this.getAttribute('data-app-id');
+
+            var _this = this;
+            $.ajax({
+                url: appizyApi.root + 'wp-json/appizy/v1/app/' + app_id,
+                method: 'GET',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
+                }
+            }).done(
+                function (data) {
+                    if (!data) {
+                        data = {}
                     }
-                ).done(
-                    function () {
-                        console.log('It works');
-                    }, 'json'
-                );
-            }.bind(frame), false
-        );
+
+                    _this.contentWindow.APY.setInputs(data);
+                    _this.contentWindow.APY.calculate();
+                }
+            );
+        }
+
+        function _saveUserData(e) {
+            var inputs = this.contentWindow.APY.getInputs();
+            var app_id = this.getAttribute('data-app-id');
+
+            $.ajax({
+                url: appizyApi.root + 'wp-json/appizy/v1/app/' + app_id,
+                data: inputs,
+                method: 'POST',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
+                }
+            }).done(
+                function () {
+                    console.log('It works');
+                }, 'json'
+            );
+        }
     }
 })(jQuery);
