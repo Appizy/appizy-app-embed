@@ -21,7 +21,7 @@ class Appizy_Api extends WP_REST_Controller {
 	public function get_data( $data ) {
 		$posts = get_post_meta( $data['id'], $this->get_meta_storage_key() );
 
-		return json_encode( $posts );
+		return $posts[0];
 	}
 
 	/**
