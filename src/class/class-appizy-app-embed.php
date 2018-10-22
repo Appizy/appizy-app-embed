@@ -25,7 +25,7 @@ class Appizy_App_Embed {
 	public function run() {
 		$this->register_scripts();
 
-		add_action( 'plugins_loaded', array( $this, 'enqueue_appizy_scripts' ) );
+		add_action( 'wp_loaded', array( $this, 'enqueue_appizy_scripts' ) );
 		add_action( 'plugins_loaded', array( $this, 'enqueue_appizy_styles' ) );
 	}
 
@@ -47,7 +47,7 @@ class Appizy_App_Embed {
 
 		wp_localize_script(
 			'appizy-script', 'appizyApi', array(
-				'root'  => '/',
+				'root'  => rest_url(),
 				'nonce' => wp_create_nonce( 'wp_rest' ),
 			)
 		);

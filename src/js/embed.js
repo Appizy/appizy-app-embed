@@ -25,7 +25,7 @@
 
             var _this = this;
             $.ajax({
-                url: appizyApi.root + 'wp-json/appizy/v1/app/' + app_id,
+                url: appizyApi.root + 'appizy/v1/app/' + app_id,
                 method: 'GET',
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
@@ -47,7 +47,7 @@
             var app_id = this.getAttribute('data-app-id');
 
             $.ajax({
-                url: appizyApi.root + 'wp-json/appizy/v1/app/' + app_id,
+                url: appizyApi.root + 'appizy/v1/app/' + app_id,
                 data: inputs,
                 method: 'POST',
                 beforeSend: function (xhr) {
