@@ -1,12 +1,32 @@
-# Release script considers the SVN folder to be at the root of the repo
+#!/bin/bash
 
-# Update trunk
+workdir=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )
+
+cd $workdir
+
+# Prepare SNV repo
+if [ ! -d "$workdir/svn" ]; then
+    echo "Cloning svn repo"
+    svn co https://plugins.svn.wordpress.org/appizy-app-embed svn
+fi
+
+# Version
+lastTag=$(git describe --abbrev=0 --tags)
+
+read -p "Release [$lastTag]: " name
+version=${name:-$lastTag}
+
+echo $version
+
+# Update trunk with current src
 cp src/* svn/trunk
 
-# Update tags
-cp src/* svn/tags/1.1.0
+# Update tags with current src
+cp src/* "svn/tags/$version"
 
 # Update assets
 cp assets svn/assets
 
+echo "Plugin files updated, run the following command to commit changes:"
 
+echo "svn ci -m 'Adding $version of Appizy App Embed' --username USERNAME --password PASSWORD"

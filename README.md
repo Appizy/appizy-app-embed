@@ -33,3 +33,6 @@ Step 4 - enjoy testing, developing...
 [WordPress readme validator](https://wordpress.org/plugins/developers/readme-validator/)
 
 [WordPress plugin guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/)
+
+[Plugin SVN](https://developer.wordpress.org/plugins/wordpress-org/how-to-use-subversion/)
+
