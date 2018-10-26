@@ -1,4 +1,11 @@
+/* global window, document */
+
 (function () {
+
+    var admin = {
+        generateShortCode: generateShortCode
+    };
+
     var appizyGeneratorForm = document.getElementById('appizy-short-code-generator');
 
     if (appizyGeneratorForm) {
@@ -8,20 +15,35 @@
 
         appizyGeneratorForm.addEventListener('change', function () {
             var appId = appIdSelector.value;
+            var enableSave = enableSaveDataCheckbox.checked;
 
-            var shortCode = '';
-
-            if (parseInt(appId) > 0) {
-                shortCode += '[appizy' + 'id="' + appId + '"';
-
-                if (enableSaveDataCheckbox.checked) {
-                    shortCode += ' save="enabled"';
-                }
-
-                shortCode += ']'
-            }
-
-            shortCodeOutput.value = shortCode;
+            shortCodeOutput.value = generateShortCode(appId, enableSave);
         });
     }
+
+    /**
+     * @param {string} appId
+     * @param {boolean} enableSave
+     * @return {string}
+     */
+    function generateShortCode(appId, enableSave) {
+        var shortCode = '';
+
+        if (parseInt(appId, 0) > 0) {
+            shortCode += '[appizy' + ' id="' + appId + '"';
+
+            if (enableSave) {
+                shortCode += ' save="enabled"';
+            }
+
+            shortCode += ']';
+        }
+
+        return shortCode;
+    }
+
+    // Add Admin to the WP Appizy namespace
+    window.wp = window.wp || {};
+    window.wp.appizy = window.wp.appizy || {};
+    window.wp.appizy.admin = admin;
 })();
