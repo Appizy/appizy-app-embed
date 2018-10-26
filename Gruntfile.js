@@ -6,7 +6,9 @@ module.exports = function (grunt) {
                 'tests/qunit/*.html'
             ],
             options: {
-                timeout: 10000
+                puppeteer: {
+                    args: ['--no-sandbox']
+                }
             }
         },
         jshint: {

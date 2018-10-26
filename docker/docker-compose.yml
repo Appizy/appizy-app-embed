@@ -14,6 +14,13 @@ services:
       - ..:/var/www/repo
       - ../src:/var/www/html/wp-content/plugins/appizy-app-embed
 
+  node:
+    build:
+      node-with-chrome
+    working_dir: /usr/app
+    volumes:
+      - ..:/usr/app
+
   mysql:
     image: mysql:5.7
     ports:
