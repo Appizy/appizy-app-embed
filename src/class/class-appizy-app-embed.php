@@ -23,25 +23,18 @@ class Appizy_App_Embed {
 	 * Action hook
 	 */
 	public function run() {
-		$this->register_scripts();
-
 		add_action( 'wp_loaded', array( $this, 'enqueue_appizy_scripts' ) );
-		add_action( 'plugins_loaded', array( $this, 'enqueue_appizy_styles' ) );
-	}
-
-	/**
-	 * Register plugin styles and scripts
-	 */
-	public function register_scripts() {
-		wp_register_script( 'appizy-script', plugins_url( '/../js/embed.js', __FILE__ ), array( 'jquery' ), null, true );
-		wp_register_script( 'appizy-admin-script', plugins_url( '/../js/admin-tools-screen.js', __FILE__ ), array( 'jquery' ), null, true );
-		wp_register_style( 'appizy-styles', plugins_url( '/../css/appizy-styles.css', __FILE__ ) );
+		add_action( 'wp_loaded', array( $this, 'enqueue_appizy_styles' ) );
 	}
 
 	/**
 	 * Enqueues plugin-specific scripts.
 	 */
 	public function enqueue_appizy_scripts() {
+		wp_register_script( 'appizy-script', plugins_url( '/../js/embed.js', __FILE__ ), array( 'jquery' ), null, true );
+		wp_register_script( 'appizy-admin-script', plugins_url( '/../js/admin-tools-screen.js', __FILE__ ), array( 'jquery' ), null, true );
+		wp_register_style( 'appizy-styles', plugins_url( '/../css/appizy-styles.css', __FILE__ ) );
+
 		wp_enqueue_script( 'appizy-script' );
 		wp_enqueue_script( 'appizy-admin-script' );
 
