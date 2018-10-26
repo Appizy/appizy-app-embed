@@ -22,11 +22,21 @@ Step 1 - start Docker
 docker-compose -f ./docker/docker-compose.yml up
 ```
 
-Step 2 - visite your localhost:8080 in your browser and the WordPress setup
+Step 2 - visit your localhost:8080 in your browser and the WordPress setup
 
 Step 3 - activate the plugin in the WordPress interface.
 
 Step 4 - enjoy testing, developing...
+
+### PHP tests
+
+* Install a WordPress test instance: `./bin/install-wp-tests.sh`
+* Launch the tests:`phpunit`
+
+### Javascript tests
+
+* Install npm modules: `./bin/npm install`
+* Launch the tests: `./bin/npm run test`
 
 ## Resources
 
@@ -36,3 +46,4 @@ Step 4 - enjoy testing, developing...
 
 [Plugin SVN](https://developer.wordpress.org/plugins/wordpress-org/how-to-use-subversion/)
 
+[Introduction to unit testing of WordPress pluging](https://www.smashingmagazine.com/2017/12/automated-testing-wordpress-plugins-phpunit/)
