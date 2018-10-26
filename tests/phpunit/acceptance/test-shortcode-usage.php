@@ -15,21 +15,13 @@ class SampleTest extends WP_UnitTestCase {
 		parent::tearDown();
 	}
 
-	/**
-	 * A single example test.
-	 */
-	public function test_sample() {
-		// Replace this with some actual testing code.
-		$this->assertTrue( true );
-	}
-
 	function test_appizy_shortcode() {
 		$post_content = <<<EOF
 Graf by itself:[appizy]
 EOF;
 
 		$expected = <<<EOF
-<p>Graf by itself:</p>
+<p>Graf by itself:<div class='appizy-app'><iframe class='appizy-app-iframe' data-app-id='' frameborder='0' width='100%' src=''></iframe></div></p>
 EOF;
 
 		$post_id = self::factory()->post->create( compact( 'post_content' ) );

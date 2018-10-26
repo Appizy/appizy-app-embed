@@ -27,10 +27,8 @@ function appizy_shortcode_callback( $attributes, $content = '' ) {
 
 	$atts_id = $attributes['id'];
 
-	$content = "<div class='appizy-app'><iframe class='appizy-app-iframe'
-            data-app-id='$atts_id'
-            frameborder='0' width='100%'
-            src='$attachment_url'></iframe>";
+	$content = "<div class='appizy-app'><iframe class='appizy-app-iframe' " .
+		"data-app-id='$atts_id' frameborder='0' width='100%' src='$attachment_url'></iframe>";
 
 	if ( is_user_logged_in() ) {
 
