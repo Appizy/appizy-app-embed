@@ -2,9 +2,9 @@
 Contributors: nicolashefti
 Tags: appizy, spreadsheet, embed, calculator, web-calculator
 Requires at least: 4.9
-Tested up to: 4.9
+Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag:2.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ Appizy App Embed allows you to add a web calculator inside your WordPress site.
 
 Key features:
 
+* **NEW**: logged in user now can save the application state
+* **NEW**: shortcode generator in the Admin to customize the embed options
 * Fast embed using shortcode inside any post.
 * Manage you web-calculator like any other media item.
 * Separation of code (CSS and JavaScript) using an iFrame tag to avoid any collision with WordPress.
@@ -44,11 +46,47 @@ Appizy App Embed can be found and installed via the Plugin menu within WordPress
 
 == Screenshots ==
 
-1. Admin overview (access with the "Tools > Appizy" menu) with the list of files and shortcode associated
+1. Admin overview (accessible under "Tools > Appizy"). List of all applications and the shortcode generator
 2. Example of shortcode in a post
-3. Display of web-calculator inside the post
+3. Basic web-calculator embed
+4. A web-calculator with a toolbar bellow to save the application data
+
+== Upgrade notice ==
+
+The version 2.0.0 brings a brand new feature to your web-calculator: it is not now possible for any logged-in user to
+save the current state of the web-calculator. All shortcodes previously added to your page or article are still working
+but you need to update them to enable the "saving feature".
+
+== Frequently Asked Questions ==
+
+= How can I send feedback or get help with a bug? =
+
+We'd love to hear your bug reports, feature suggestions and any other feedback! Please head over to
+<a href="https://github.com/Appizy/appizy-app-embed/issues">the GitHub issues page</a> to search for existing issues or
+open a new one. You can also contact us on <a href="https://www.appizy.com/company/contact.html">Appizy website</a>.
+
+= Where are the user's data from the calculator saved? =
+
+These information are stored inside the WordPress database. Please ensure that the terms of use of your website allow
+you to store these personal data.
+
+= Is there any export or backup of these data available? =
+
+The plugin does not offer yet any special export and backup feature. Please backup your website on a regular bases to
+avoid any data loss.
+
+= How safe is the data storage within the plugin? =
+
+While we try to ensure that the plugin is error free, we cannot guarantee that user data will not be damaged,
+deleted or lost. The developers will not be responsible for any failure caused by the plugin.
+
+The "saving feature" is still in beta version. Do not use it for critical business or personal purpose.
 
 == Changelog ==
+
+= 2.0.0 =
+* Major new release, it is now possible to save the application state per user,
+* Shortcode generator to customize embed options.
 
 = 1.0.0 =
 * Initial release
