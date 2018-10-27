@@ -17,6 +17,7 @@ Appizy App Embed allows you to add a web calculator inside your WordPress site.
 Key features:
 
 * **NEW**: logged in user now can save the application state
+* **NEW**: shortcode generator in the Admin to customize the embed options
 * Fast embed using shortcode inside any post.
 * Manage you web-calculator like any other media item.
 * Separation of code (CSS and JavaScript) using an iFrame tag to avoid any collision with WordPress.
@@ -45,9 +46,10 @@ Appizy App Embed can be found and installed via the Plugin menu within WordPress
 
 == Screenshots ==
 
-1. Admin overview (access with the "Tools > Appizy" menu) with the list of files and shortcode associated
+1. Admin overview (accessible under "Tools > Appizy"). List of all applications and the shortcode generator
 2. Example of shortcode in a post
-3. Display of web-calculator inside the post
+3. Basic web-calculator embed
+4. A web-calculator with a toolbar bellow to save the application data
 
 == Upgrade notice ==
 
@@ -65,7 +67,7 @@ open a new one. You can also contact us on <a href="https://www.appizy.com/compa
 
 = Where are the user's data from the calculator saved? =
 
-These information are stored inside your WordPress database. Please ensure that the terms of use of your website allow
+These information are stored inside the WordPress database. Please ensure that the terms of use of your website allow
 you to store these personal data.
 
 = Is there any export or backup of these data available? =
@@ -83,7 +85,8 @@ The "saving feature" is still in beta version. Do not use it for critical busine
 == Changelog ==
 
 = 2.0.0 =
-* Major new release, it is now possible to save the application state per user
+* Major new release, it is now possible to save the application state per user,
+* Shortcode generator to customize embed options.
 
 = 1.0.0 =
 * Initial release
