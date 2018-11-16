@@ -19,14 +19,15 @@ version=${name:-$lastTag}
 echo $version
 
 # Update trunk with current src
-cp src/* svn/trunk
+cp -R src/* svn/trunk
 
 # Update tags with current src
-cp src/* "svn/tags/$version"
+mkdir "svn/tags/$version"
+cp -R src/* "svn/tags/$version"
 
 # Update assets
-cp assets svn/assets
+cp -R assets/* svn/assets
 
 echo "Plugin files updated, run the following command to commit changes:"
-
-echo "svn ci -m 'Adding $version of Appizy App Embed' --username USERNAME --password PASSWORD"
+echo "$ svn stat"
+echo "$ svn ci -m 'Version $version of Appizy App Embed' --username USERNAME --password PASSWORD"
