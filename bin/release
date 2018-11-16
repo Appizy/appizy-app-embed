@@ -30,4 +30,5 @@ cp -R assets/* svn/assets
 
 echo "Plugin files updated, run the following command to commit changes:"
 echo "$ svn stat"
+echo "$ svn add tags/$version"
 echo "$ svn ci -m 'Version $version of Appizy App Embed' --username USERNAME --password PASSWORD"
