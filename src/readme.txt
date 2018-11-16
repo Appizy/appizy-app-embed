@@ -4,7 +4,7 @@ Tags: appizy, spreadsheet, embed, calculator, web-calculator
 Requires at least: 4.9
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag:2.0.0
+Stable tag:2.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,9 +84,12 @@ The "saving feature" is still in beta version. Do not use it for critical busine
 
 == Changelog ==
 
+= 2.0.1 =
+* Fix the version number inside plugin files
+
 = 2.0.0 =
-* Major new release, it is now possible to save the application state per user,
-* Shortcode generator to customize embed options.
+* Major new release, it is now possible to save the application state per user
+* Shortcode generator to customize embed options
 
 = 1.0.0 =
 * Initial release

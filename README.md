@@ -38,6 +38,10 @@ Step 4 - enjoy testing, developing...
 * Install npm modules: `./bin/npm install`
 * Launch the tests: `./bin/npm run test`
 
+### SVN repo
+
+https://plugins.svn.wordpress.org/appizy-app-embed/
+
 ## Resources
 
 [WordPress readme validator](https://wordpress.org/plugins/developers/readme-validator/)
