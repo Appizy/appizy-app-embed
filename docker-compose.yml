@@ -11,15 +11,9 @@ services:
     environment:
       WORDPRESS_DB_PASSWORD: example
     volumes:
-      - ..:/var/www/repo
-      - ../src:/var/www/html/wp-content/plugins/appizy-app-embed
-
-  node:
-    build:
-      node-with-chrome
-    working_dir: /usr/app
-    volumes:
-      - ..:/usr/app
+      - .:/var/www/repo
+      - ./data/uploads:/var/www/html/wp-content/uploads
+      - ./src:/var/www/html/wp-content/plugins/appizy-app-embed
 
   mysql:
     image: mysql:5.7
