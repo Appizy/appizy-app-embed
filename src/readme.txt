@@ -2,7 +2,7 @@
 Contributors: nicolashefti
 Tags: appizy, spreadsheet, embed, calculator, web-calculator
 Requires at least: 4.9
-Tested up to: 5.3
+Tested up to: 5.6
 Requires PHP: 5.6
 Stable tag:2.0.1
 License: GPLv3
@@ -83,6 +83,11 @@ deleted or lost. The developers will not be responsible for any failure caused b
 The "saving feature" is still in beta version. Do not use it for critical business or personal purpose.
 
 == Changelog ==
+
+= 2.1.0 =
+
+* Add new "height" option in shortcode configuration to skip auto-height calculation on load.
+* Remove default margin in auto-height calculation.
 
 = 2.0.1 =
 * Fix the version number inside plugin files

@@ -1,7 +1,6 @@
 /* global appizyApi */
 
 (function ($) {
-    var default_margin = 16;
     var apps = document.getElementsByClassName('appizy-app');
 
     for (var i = 0; i < apps.length; i++) {
@@ -11,7 +10,9 @@
         var saveButton = app.querySelector('.appizy-app-toolbar button');
         var isSaveEnabled = !!saveButton;
 
-        frame.addEventListener('load', _resizeFrame);
+				if (!frame.height) {
+						frame.addEventListener('load', _resizeFrame);
+				}
 
         if (isSaveEnabled) {
             frame.addEventListener('load', _loadUserData);
@@ -20,7 +21,7 @@
     }
 
     function _resizeFrame() {
-        this.style.height = this.contentWindow.document.body.offsetHeight + default_margin + 'px';
+        this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
     }
 
     function _loadUserData() {
