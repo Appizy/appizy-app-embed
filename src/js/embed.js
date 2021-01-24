@@ -10,7 +10,9 @@
         var saveButton = app.querySelector('.appizy-app-toolbar button');
         var isSaveEnabled = !!saveButton;
 
-        frame.addEventListener('load', _resizeFrame);
+				if (!frame.height) {
+					frame.addEventListener('load', _resizeFrame);
+				}
 
         if (isSaveEnabled) {
             frame.addEventListener('load', _loadUserData);

@@ -12,14 +12,14 @@
         var shortCodeOutput = appizyGeneratorForm.querySelector('textarea[name="shortcode"]');
         var appIdSelector = appizyGeneratorForm.querySelector('select[name="app-id"]');
         var enableSaveDataCheckbox = appizyGeneratorForm.querySelector('input[name="enable-save"]');
-        //var appContainerHeight = appizyGeneratorForm.querySelector('input[name="height"]');
+        var appContainerHeight = appizyGeneratorForm.querySelector('input[name="height"]');
 
         appizyGeneratorForm.addEventListener('change', function () {
             var appId = appIdSelector.value;
             var enableSave = enableSaveDataCheckbox.checked;
-            //var height = appContainerHeight.value;
+            var height = appContainerHeight.value;
 
-            shortCodeOutput.value = generateShortCode(appId, enableSave, 12);
+            shortCodeOutput.value = generateShortCode(appId, enableSave, height);
         });
     }
 
