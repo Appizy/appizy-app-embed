@@ -1,4 +1,4 @@
-<?php
+xx<?php
 /**
  * Register shortcode
  *
@@ -34,7 +34,7 @@ function appizy_shortcode_callback( $attributes, $content = '' ) {
 
 		if ( 'enabled' === $attributes['save'] ) {
 			$content .= '<div class="appizy-app-toolbar">';
-			$content .= '<button type="submit">Save</button>';
+			$content .= '<button class="button" type="submit">Save</button>';
 			$content .= '</div>';
 		}
 	}

@@ -58,6 +58,13 @@
 					</td>
 				</tr>
 				<tr>
+					<th><?php _e( 'Manual height' ); ?></th>
+					<td>
+						<input name="height" type="number" value="" placeholder="" size="4"> px
+						<p class="description"><?php _e( 'Leave empty for auto height.' ); ?></p>
+					</td>
+				</tr>
+				<tr>
 					<th><?php _e( 'Shortcode' ); ?></th>
 					<td>
 						<textarea cols="60" name="shortcode"></textarea>
