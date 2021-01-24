@@ -11,7 +11,7 @@
         var isSaveEnabled = !!saveButton;
 
 				if (!frame.height) {
-					frame.addEventListener('load', _resizeFrame);
+						frame.addEventListener('load', _resizeFrame);
 				}
 
         if (isSaveEnabled) {
