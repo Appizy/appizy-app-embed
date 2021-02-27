@@ -12,15 +12,15 @@
 	<?php
 
 	$args = [
-		'order'          => 'ASC',
-		'order_by'       => 'publish_date',
-		'posts_per_page' => - 1,
-		'post_status'    => null,
-		'post_parent'    => null,
-		'default_styles' => true,
-		'date_format'    => 'Y/m/d',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'text/html',
+			'order'          => 'ASC',
+			'order_by'       => 'publish_date',
+			'posts_per_page' => - 1,
+			'post_status'    => null,
+			'post_parent'    => null,
+			'default_styles' => true,
+			'date_format'    => 'Y/m/d',
+			'post_type'      => 'attachment',
+			'post_mime_type' => 'text/html',
 	];
 
 	$attachments = get_posts( $args );
@@ -55,6 +55,15 @@
 							<?php _e( 'Any logged in user can save application state.' ); ?>
 						</label>
 						<p class="description"><?php _e( 'Each user will be able to save the state of the application and reopen it for later use.' ); ?></p>
+					</td>
+				</tr>
+				<tr>
+					<th><?php _e( 'Print button' ); ?></th>
+					<td>
+						<label>
+							<input name="enable-print" type="checkbox" value="true">
+							<?php _e( 'Allow user to print the current view of the application.' ); ?>
+						</label>
 					</td>
 				</tr>
 				<tr>

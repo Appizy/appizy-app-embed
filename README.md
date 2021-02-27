@@ -19,7 +19,7 @@ The development of the plugin is Dockerified for easy setup.
 Step 1 - start Docker
 
 ```bash
-docker-compose -f ./docker/docker-compose.yml up
+docker-compose up
 ```
 
 Step 2 - visit your localhost:8080 in your browser and the WordPress setup

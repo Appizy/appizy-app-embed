@@ -5,7 +5,9 @@
 }
 
 .appizy-app-toolbar {
-    border-top: 1px solid #eee;
     margin: 0.4em 0 1em 0;
-    padding: 1em 0;
+}
+
+.appizy-app-toolbar button {
+    margin-right: 7px;
 }

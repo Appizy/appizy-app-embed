@@ -18,6 +18,7 @@ function appizy_shortcode_callback( $attributes, $content = '' ) {
 		[
 			'id'     => null,
 			'save'   => 'disabled',
+			'print'  => 'disabled',
 			'height' => null
 		],
 		$attributes,
@@ -26,18 +27,23 @@ function appizy_shortcode_callback( $attributes, $content = '' ) {
 
 	$attachment_url = wp_get_attachment_url( $attributes['id'] );
 
-	$atts_id = $attributes['id'];
+	$atts_id          = $attributes['id'];
 	$height_attribute = $attributes['height'] ? 'height="' . $attributes['height'] . '" ' : '';
 
 	$content = "<div class='appizy-app'><iframe class='appizy-app-iframe' " . $height_attribute .
 	           "data-app-id='$atts_id' frameborder='0' width='100%' src='$attachment_url'></iframe>";
 
-	if ( is_user_logged_in() ) {
+	if ( $attributes['save'] === 'enabled' || $attributes['print'] === 'enabled' ) {
+		$content .= '<div class="appizy-app-toolbar">';
 
-		if ( 'enabled' === $attributes['save'] ) {
-			$content .= '<div class="appizy-app-toolbar">';
-			$content .= '<button class="button" type="submit">Save</button>';
-			$content .= '</div>';
+		if ( is_user_logged_in() ) {
+			if ( $attributes['save'] === 'enabled' ) {
+				$content .= '<button class="button button-save" type="submit">Save</button>';
+			}
+		}
+
+		if ( $attributes['print'] === 'enabled' ) {
+			$content .= '<button class="button button-print">Print</button>';
 		}
 	}
 

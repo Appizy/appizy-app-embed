@@ -1,66 +1,75 @@
 /* global appizyApi */
 
 (function ($) {
-    var apps = document.getElementsByClassName('appizy-app');
+	var apps = document.getElementsByClassName('appizy-app');
 
-    for (var i = 0; i < apps.length; i++) {
-        var app = apps[i];
+	for (var i = 0; i < apps.length; i++) {
+		var app = apps[i];
 
-        var frame = app.querySelector('iframe');
-        var saveButton = app.querySelector('.appizy-app-toolbar button');
-        var isSaveEnabled = !!saveButton;
+		var frame = app.querySelector('iframe');
+		var saveButton = app.querySelector('.appizy-app-toolbar .button-submit');
+		var isSaveEnabled = !!saveButton;
+		var printButton = app.querySelector('.appizy-app-toolbar .button-print');
 
-				if (!frame.height) {
-						frame.addEventListener('load', _resizeFrame);
+		if (!frame.height) {
+			frame.addEventListener('load', _resizeFrame);
+		}
+
+		if (isSaveEnabled) {
+			frame.addEventListener('load', _loadUserData);
+			saveButton.addEventListener('click', _saveUserData.bind(frame));
+		}
+
+		if (printButton) {
+			printButton.addEventListener('click', _print.bind(frame));
+		}
+	}
+
+	function _resizeFrame() {
+		this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+	}
+
+	function _loadUserData() {
+		var app_id = this.getAttribute('data-app-id');
+
+		var _this = this;
+		$.ajax({
+			url: appizyApi.root + 'appizy/v1/app/' + app_id,
+			method: 'GET',
+			beforeSend: function (xhr) {
+				xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
+			}
+		}).done(
+			function (data) {
+				if (!data) {
+					data = {};
 				}
 
-        if (isSaveEnabled) {
-            frame.addEventListener('load', _loadUserData);
-            saveButton.addEventListener('click', _saveUserData.bind(frame));
-        }
-    }
+				_this.contentWindow.APY.setInputs(data);
+				_this.contentWindow.APY.calculate();
+			}
+		);
+	}
 
-    function _resizeFrame() {
-        this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
-    }
+	function _saveUserData() {
+		var inputs = this.contentWindow.APY.getInputs();
+		var app_id = this.getAttribute('data-app-id');
 
-    function _loadUserData() {
-        var app_id = this.getAttribute('data-app-id');
+		$.ajax({
+			url: appizyApi.root + 'appizy/v1/app/' + app_id,
+			data: inputs,
+			method: 'POST',
+			beforeSend: function (xhr) {
+				xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
+			}
+		}).done(
+			function () {
+				// Not much yet
+			}, 'json'
+		);
+	}
 
-        var _this = this;
-        $.ajax({
-            url: appizyApi.root + 'appizy/v1/app/' + app_id,
-            method: 'GET',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
-            }
-        }).done(
-            function (data) {
-                if (!data) {
-                    data = {};
-                }
-
-                _this.contentWindow.APY.setInputs(data);
-                _this.contentWindow.APY.calculate();
-            }
-        );
-    }
-
-    function _saveUserData() {
-        var inputs = this.contentWindow.APY.getInputs();
-        var app_id = this.getAttribute('data-app-id');
-
-        $.ajax({
-            url: appizyApi.root + 'appizy/v1/app/' + app_id,
-            data: inputs,
-            method: 'POST',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-WP-Nonce', appizyApi.nonce);
-            }
-        }).done(
-            function () {
-                // Not much yet
-            }, 'json'
-        );
-    }
+	function _print() {
+		this.contentWindow.print();
+	}
 })(jQuery);
