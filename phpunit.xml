@@ -8,7 +8,7 @@
 	convertWarningsToExceptions="true"
 	>
 	<testsuites>
-		<testsuite>
+		<testsuite name="acceptance">
 			<directory prefix="test-" suffix=".php">./tests/phpunit</directory>
 		</testsuite>
 	</testsuites>

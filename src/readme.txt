@@ -2,9 +2,9 @@
 Contributors: nicolashefti
 Tags: appizy, spreadsheet, embed, calculator, web-calculator
 Requires at least: 4.9
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag:2.2.0
+Stable tag:2.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,10 @@ deleted or lost. The developers will not be responsible for any failure caused b
 The "saving feature" is still in beta version. Do not use it for critical business or personal purpose.
 
 == Changelog ==
+
+= 2.2.1 =
+
+* Code style clean up
 
 = 2.2.0 =
 

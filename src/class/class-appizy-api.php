@@ -41,12 +41,15 @@ class Appizy_Api extends WP_REST_Controller {
 
 	public function register_routes() {
 		add_action(
-			'rest_api_init', function () {
+			'rest_api_init',
+			function () {
 				$namespace = 'appizy/v1';
 				$base      = 'app';
 
 				register_rest_route(
-					$namespace, '/' . $base . '/(?P<id>[\d]+)', array(
+					$namespace,
+					'/' . $base . '/(?P<id>[\d]+)',
+					array(
 						array(
 							'methods'  => WP_REST_Server::READABLE,
 							'callback' => array( $this, 'get_data' ),

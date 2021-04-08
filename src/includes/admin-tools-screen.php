@@ -11,17 +11,17 @@
 
 	<?php
 
-	$args = [
-			'order'          => 'ASC',
-			'order_by'       => 'publish_date',
-			'posts_per_page' => - 1,
-			'post_status'    => null,
-			'post_parent'    => null,
-			'default_styles' => true,
-			'date_format'    => 'Y/m/d',
-			'post_type'      => 'attachment',
-			'post_mime_type' => 'text/html',
-	];
+	$args = array(
+		'order'          => 'ASC',
+		'order_by'       => 'publish_date',
+		'posts_per_page' => - 1,
+		'post_status'    => null,
+		'post_parent'    => null,
+		'default_styles' => true,
+		'date_format'    => 'Y/m/d',
+		'post_type'      => 'attachment',
+		'post_mime_type' => 'text/html',
+	);
 
 	$attachments = get_posts( $args );
 

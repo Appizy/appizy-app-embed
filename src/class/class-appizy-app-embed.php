@@ -44,7 +44,9 @@ class Appizy_App_Embed {
 		wp_enqueue_script( 'appizy-script' );
 
 		wp_localize_script(
-			'appizy-script', 'appizyApi', array(
+			'appizy-script',
+			'appizyApi',
+			array(
 				'root'  => rest_url(),
 				'nonce' => wp_create_nonce( 'wp_rest' ),
 			)
