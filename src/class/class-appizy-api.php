@@ -16,7 +16,7 @@ class Appizy_Api extends WP_REST_Controller {
 	 *
 	 * @param array $data Options for the function.
 	 *
-	 * @return string|null Post title for the latest,  * or null if none.
+	 * @return string|null Post title for the latest, * or null if none.
 	 */
 	public function get_data( $data ) {
 		$posts = get_post_meta( $data['id'], $this->get_meta_storage_key() );
@@ -53,6 +53,7 @@ class Appizy_Api extends WP_REST_Controller {
 						array(
 							'methods'  => WP_REST_Server::READABLE,
 							'callback' => array( $this, 'get_data' ),
+							'permission_callback' => array( $this, 'permissions_check'),
 							'args'     => array(
 								'context' => array(
 									'default' => 'view',
@@ -62,15 +63,8 @@ class Appizy_Api extends WP_REST_Controller {
 						array(
 							'methods'  => WP_REST_Server::EDITABLE,
 							'callback' => array( $this, 'update_data' ),
-						),
-						array(
-							'methods' => WP_REST_Server::DELETABLE,
-							'args'    => array(
-								'force' => array(
-									'default' => false,
-								),
-							),
-						),
+							'permission_callback' => array( $this, 'permissions_check'),
+						)
 					)
 				);
 			}
@@ -82,5 +76,17 @@ class Appizy_Api extends WP_REST_Controller {
 	 */
 	private function get_meta_storage_key() {
 		return 'APPIZY_' . get_current_user_id();
+	}
+
+	/**
+	 * @return mixed
+	 */
+	function permissions_check() {
+		// Restrict endpoint to only logged in users
+		if ( ! is_user_logged_in() ) {
+			return new WP_Error( 'rest_forbidden', esc_html__( 'Access restricted.', 'appizy' ), array( 'status' => 401 ) );
+		}
+
+		return true;
 	}
 }

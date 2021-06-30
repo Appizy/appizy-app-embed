@@ -7,7 +7,7 @@
 		var app = apps[i];
 
 		var frame = app.querySelector('iframe');
-		var saveButton = app.querySelector('.appizy-app-toolbar .button-submit');
+		var saveButton = app.querySelector('.appizy-app-toolbar .button-save');
 		var isSaveEnabled = !!saveButton;
 		var printButton = app.querySelector('.appizy-app-toolbar .button-print');
 
