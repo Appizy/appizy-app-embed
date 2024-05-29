@@ -8,12 +8,12 @@ Plugin Name: Appizy App Embed
 Description: The easiest and fastest way to embed your web-applications created with Appizy into your WordPress website.
 Author: Appizy
 Author URI: http://www.appizy.com
-Version: 2.2.2
+Version: 2.3.1
 Text Domain: appizy
 */
 
 /*
-Copyright (C) 2017-2021 Appizy
+Copyright (C) 2017-2024 Appizy
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
