@@ -19,6 +19,7 @@ function appizy_shortcode_callback( $attributes, $content = '' ) {
 			'id'     => null,
 			'save'   => 'disabled',
 			'print'  => 'disabled',
+			'reset'  => 'disabled',
 			'height' => null,
 		),
 		$attributes,
@@ -33,7 +34,7 @@ function appizy_shortcode_callback( $attributes, $content = '' ) {
 	$content = "<div class='appizy-app'><iframe class='appizy-app-iframe' " . $height_attribute .
 			"data-app-id='$atts_id' frameborder='0' width='100%' src='$attachment_url'></iframe>";
 
-	if ( 'enabled' === $attributes['save'] || 'enabled' === $attributes['print'] ) {
+	if ( 'enabled' === $attributes['save'] || 'enabled' === $attributes['print'] | 'enabled' === $attributes['reset'] ) {
 		$content .= '<div class="appizy-app-toolbar">';
 
 		if ( is_user_logged_in() ) {
@@ -44,6 +45,10 @@ function appizy_shortcode_callback( $attributes, $content = '' ) {
 
 		if ( 'enabled' === $attributes['print'] ) {
 			$content .= '<button class="button button-print">Print</button>';
+		}
+
+		if ( 'enabled' === $attributes['reset'] ) {
+			$content .= '<button class="button button-reset">Reset</button>';
 		}
 	}
 

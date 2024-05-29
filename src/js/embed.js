@@ -10,6 +10,7 @@
 		var saveButton = app.querySelector('.appizy-app-toolbar .button-save');
 		var isSaveEnabled = !!saveButton;
 		var printButton = app.querySelector('.appizy-app-toolbar .button-print');
+		var resetButton = app.querySelector('.appizy-app-toolbar .button-reset');
 
 		if (!frame.height) {
 			frame.addEventListener('load', _resizeFrame);
@@ -22,6 +23,10 @@
 
 		if (printButton) {
 			printButton.addEventListener('click', _print.bind(frame));
+		}
+
+		if (resetButton) {
+			resetButton.addEventListener('click', _reset.bind(frame));
 		}
 	}
 
@@ -71,5 +76,9 @@
 
 	function _print() {
 		this.contentWindow.print();
+	}
+
+	function _reset() {
+		this.contentWindow.APY.resetState();
 	}
 })(jQuery);

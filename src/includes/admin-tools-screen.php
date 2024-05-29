@@ -67,6 +67,16 @@
 					</td>
 				</tr>
 				<tr>
+					<th><?php _e( 'Reset button' ); ?></th>
+					<td>
+						<label>
+							<input name="enable-reset" type="checkbox" value="true">
+							<?php _e( 'Allow user to reset the application to initial state.' ); ?>
+						</label>
+						<p class="description"><?php _e( 'This only works with compatible Appizy apps, generated as of May 2024.' ); ?></p>
+					</td>
+				</tr>
+				<tr>
 					<th><?php _e( 'Manual height' ); ?></th>
 					<td>
 						<input name="height" type="number" value="" placeholder="" size="4"> px

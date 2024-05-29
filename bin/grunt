@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-docker-compose -f docker/docker-compose.yml run --rm node node_modules/.bin/grunt $@
