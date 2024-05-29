@@ -13,6 +13,7 @@
         var appIdSelector = appizyGeneratorForm.querySelector('select[name="app-id"]');
         var enableSaveDataCheckbox = appizyGeneratorForm.querySelector('input[name="enable-save"]');
         var enablePrintCheckbox = appizyGeneratorForm.querySelector('input[name="enable-print"]');
+        var enableResetCheckbox = appizyGeneratorForm.querySelector('input[name="enable-reset"]');
         var appContainerHeight = appizyGeneratorForm.querySelector('input[name="height"]');
 
         appizyGeneratorForm.addEventListener('change', function () {
@@ -20,8 +21,9 @@
             var enableSave = enableSaveDataCheckbox.checked;
             var height = appContainerHeight.value;
             var enablePrint = enablePrintCheckbox.checked;
+            var enableReset = enableResetCheckbox.checked;
 
-            shortCodeOutput.value = generateShortCode(appId, enableSave, height, enablePrint);
+            shortCodeOutput.value = generateShortCode(appId, enableSave, height, enablePrint, enableReset);
         });
     }
 
@@ -32,7 +34,7 @@
      * @param {boolean} enablePrint
 	 * @return {string}
 	 */
-    function generateShortCode(appId, enableSave, appContainerHeight, enablePrint) {
+    function generateShortCode(appId, enableSave, appContainerHeight, enablePrint, enableReset) {
         var shortCode = '';
 
         if (parseInt(appId, 0) > 0) {
@@ -44,6 +46,10 @@
 
             if (enablePrint) {
                 shortCode += ' print="enabled"';
+            }
+
+            if (enableReset) {
+                shortCode += ' reset="enabled"';
             }
 
             if (appContainerHeight > 0) {
