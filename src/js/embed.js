@@ -79,6 +79,6 @@
 	}
 
 	function _reset() {
-		this.contentWindow.APY.resetState();
+		this.contentWindow.APY.onResetButtonClicked();
 	}
 })(jQuery);
