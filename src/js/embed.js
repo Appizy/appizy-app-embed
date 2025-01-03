@@ -31,7 +31,7 @@
 	}
 
 	function _resizeFrame() {
-		this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+		this.style.height = this.contentWindow.document.body.scrollHeight + 16 + 'px';
 	}
 
 	function _loadUserData() {

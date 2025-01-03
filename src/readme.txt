@@ -2,9 +2,9 @@
 Contributors: nicolashefti
 Tags: appizy, spreadsheet, embed, calculator, web-calculator
 Requires at least: 4.9
-Tested up to: 6.5
+Tested up to: 6.7
 Requires PHP: 5.6
-Stable tag:2.3.2
+Stable tag:2.4.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,11 @@ deleted or lost. The developers will not be responsible for any failure caused b
 The "saving feature" is still in beta version. Do not use it for critical business or personal purpose.
 
 == Changelog ==
+
+= 2.4.0 =
+
+* Security update
+* Leverage on .wp-block-button to style toolbar buttons
 
 = 2.3.0 =
 
